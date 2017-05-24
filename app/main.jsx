@@ -14,8 +14,11 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/">
         <IndexRoute component={testComponent} />
-        <Route path="campus/:id" component={testComponent} />
-        <Route path="students" component={testComponent} />
+        <Route path="campus/:id" component={testComponent2} />
+        <Route path="students" component={testComponent2} />
+        <Route path="students/add" component={testComponent} />
+
+       {/* probably not necessary? vvv */}
         <Route path="*" component={testComponent2} />
       </Route>
     </Router>

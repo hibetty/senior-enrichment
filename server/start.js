@@ -17,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
+app.use('/api', require('./api'));
 
 // use frontend routes
 const frontEndRoutes = ['/', '/campus/:id', '/students', '/students/add', '/test'];
@@ -25,6 +26,13 @@ frontEndRoutes.forEach(route => {
   app.get(route, (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
   });
+});
+
+
+/* --- Error Handling --- */
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 //The code below works because `.use` returns `this` which is `app`. So what we want to return in the `module.exports` is `app`, and we can chain on that declaration because each method invokation returns `app` after mutating based on the middleware functions
