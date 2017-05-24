@@ -21,12 +21,15 @@ api.get('/campuses', (req, res, next) => {
 
 api.get('/campus/:id', (req, res, next) => {
   let campus = req.params.id;
-  db.Student.findAll({
+  let getCampus = db.Campus.findById(campus);
+  let getStudents = db.Student.findAll({
     where: {
       campusId: campus
     }
-  })
-  .then(students => res.send(students))
+  });
+
+  Promise.all([getCampus, getStudents])
+  .then(result => res.send(result))
   .catch(next);
 });
 
