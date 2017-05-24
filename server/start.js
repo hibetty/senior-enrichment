@@ -20,7 +20,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use('/api', require('./api'));
 
 // use frontend routes
-const frontEndRoutes = ['/', '/campus/:id', '/students', '/students/add', '/test'];
+const frontEndRoutes = ['/', '/campuses', '/campus/:id', '/students', '/students/add', '/test'];
 
 frontEndRoutes.forEach(route => {
   app.get(route, (req, res) => {
