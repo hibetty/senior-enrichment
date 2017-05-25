@@ -12,7 +12,7 @@ export default class AddStudent extends React.Component {
     let studentInfo = {
       name: event.target.name.value,
       email: event.target.email.value,
-      campusId: Number(event.target.campusSelect.value.slice(-1))
+      campusId: event.target.campusSelect.value
     };
     this.props.addStudent(studentInfo);
     browserHistory.push('/students');
@@ -37,7 +37,7 @@ export default class AddStudent extends React.Component {
             <select className="form-control" id="campusSelect">
             {
               this.props.campuses.campuses.map(campus => {
-                return <option key={campus.id}>{campus.name} - {campus.id}</option>;
+                return <option key={campus.id} value={campus.id}>{campus.name}</option>;
               })
             }
             </select>

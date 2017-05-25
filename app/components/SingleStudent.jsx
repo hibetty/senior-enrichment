@@ -29,7 +29,7 @@ export default class SingleStudent extends React.Component {
           }
 
           </select>
-          <button type="submit">Update</button>
+          <button className="btn btn-default" type="submit">Update</button>
         </form>
       </div>
     );

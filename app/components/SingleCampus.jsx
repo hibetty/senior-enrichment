@@ -20,7 +20,7 @@ export default class SingleCampus extends React.Component {
       <div>
         <h1>{this.props.campuses.campusName} Campus</h1>
         <h3>Students:</h3>
-        <table>
+        <table className="table">
         <thead>
         <tr>
           <th>ID</th>
@@ -49,10 +49,10 @@ export default class SingleCampus extends React.Component {
           <input type="text" id="name" />
           <label htmlFor="imageURL">Image URL:</label>
           <input type="text" id="imageURL" />
-          <button type="submit">Update</button>
+          <button className="btn btn-default" type="submit">Update</button>
         </form>
         <hr />
-        <button name="deleteCampus" onClick={this.removeCampusCallback}>Delete Campus</button>
+        <button className="btn btn-default" name="deleteCampus" onClick={this.removeCampusCallback}>Delete Campus</button>
       </div>
     );
   }
