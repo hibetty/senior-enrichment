@@ -1,3 +1,8 @@
 body {
-  margin: 5%;
+  padding: 5%;
+}
+
+/* responsive */
+@media (max-width: 766px) {
+  body { padding-top: 140px; }
 }

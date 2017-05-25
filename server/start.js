@@ -20,7 +20,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use('/api', require('./api'));
 
 // use frontend routes
-const frontEndRoutes = ['/', '/campuses', '/campus/:id', '/students', '/student/:id', '/students/add', '/test'];
+const frontEndRoutes = ['/', '/campuses', '/campus/:id', '/campuses/add', '/students', '/student/:id', '/students/add', '/test'];
 
 frontEndRoutes.forEach(route => {
   app.get(route, (req, res) => {
@@ -30,6 +30,10 @@ frontEndRoutes.forEach(route => {
 
 
 /* --- Error Handling --- */
+app.use(function (req, res, next) {
+  res.status(404).send('Oops! We can\'t find what you\'re looking for.');
+});
+
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something broke!');

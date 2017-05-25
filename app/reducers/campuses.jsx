@@ -11,6 +11,7 @@ let initialState = {
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_CAMPUS_DATA = 'GET_CAMPUS_DATA';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
+const SET_CAMPUS = 'SET_CAMPUS';
 
 
 /* --- action creators --- */
@@ -29,6 +30,11 @@ export const getCampusData = (data) => ({
 export const removeCampus = (id) => ({
   type: REMOVE_CAMPUS,
   id
+});
+
+export const addCampus = (campusInfo) => ({
+  type: SET_CAMPUS,
+  campusInfo
 });
 
 
@@ -60,6 +66,16 @@ export const removeOneCampus = (campusId) =>
   };
 };
 
+export const addACampus = (campusInfo) =>
+{
+  return dispatch => {
+    axios.post('/api/campuses', campusInfo)
+    .then(res => res.data)
+    .then(campus => dispatch(addCampus(campus)))
+    .catch(err => console.error('there was a problem adding a campus', err));
+  };
+};
+
 /* --- reducer --- */
 export default function reducer(state = initialState, action){
   const newState = Object.assign({}, state);
@@ -77,6 +93,10 @@ export default function reducer(state = initialState, action){
 
     case REMOVE_CAMPUS:
     newState.campuses = newState.campuses.filter(campus => campus.id !== action.id);
+    break;
+
+    case SET_CAMPUS:
+    newState.campuses = newState.campuses.concat(action.campusInfo);
     break;
 
     default:
