@@ -76,7 +76,7 @@ export default function reducer(state = initialState, action){
     break;
 
     case REMOVE_CAMPUS:
-    newState.campuses.filter(campus => campus.id !== action.id);
+    newState.campuses = newState.campuses.filter(campus => campus.id !== action.id);
     break;
 
     default:
