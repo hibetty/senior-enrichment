@@ -2,6 +2,7 @@ import axios from 'axios';
 
 let initialState = {
   campuses: [],
+  campusId: '',
   campusName: '',
   campusStudents: []
 };
@@ -9,6 +10,7 @@ let initialState = {
 /* --- actions --- */
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_CAMPUS_DATA = 'GET_CAMPUS_DATA';
+const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 
 
 /* --- action creators --- */
@@ -19,8 +21,14 @@ export const getCampuses = (campuses) => ({
 
 export const getCampusData = (data) => ({
   type: GET_CAMPUS_DATA,
+  campusId: data[0].id,
   campusName: data[0].name,
   campusStudents: data[1]
+});
+
+export const removeCampus = (id) => ({
+  type: REMOVE_CAMPUS,
+  id
 });
 
 
@@ -43,6 +51,14 @@ export const getOneCampusData = (campusId) =>
   };
 };
 
+export const removeOneCampus = (campusId) =>
+{
+  return dispatch => {
+    axios.delete(`/api/campus/${campusId}`)
+    .catch(err => console.error(`Oops. Unable to remove campus with id: ${campusId}`, err));
+  };
+};
+
 /* --- reducer --- */
 export default function reducer(state = initialState, action){
   const newState = Object.assign({}, state);
@@ -55,6 +71,10 @@ export default function reducer(state = initialState, action){
     case GET_CAMPUS_DATA:
     newState.campusName = action.campusName;
     newState.campusStudents = action.campusStudents;
+    newState.campusId = action.campusId;
+    break;
+
+    case REMOVE_CAMPUS:
     break;
 
     default:

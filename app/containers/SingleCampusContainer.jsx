@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getOneCampusData } from '../reducers/campuses';
+import { getOneCampusData, removeOneCampus } from '../reducers/campuses';
 
 import SingleCampus from '../components/SingleCampus';
 
@@ -12,6 +12,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   loadSingleCampus: (campusId) => {
     dispatch(getOneCampusData(campusId));
+  },
+  removeCampus: (campusId) => {
+    dispatch(removeOneCampus(campusId));
   }
 });
 

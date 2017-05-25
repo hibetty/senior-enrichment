@@ -20,7 +20,7 @@ export const getStudents = (students) => ({
 export const getStudentData = (data) => ({
   type: GET_STUDENT_DATA,
   student: data
-})
+});
 
 
 /* --- dispatchers --- */
