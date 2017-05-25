@@ -73,10 +73,8 @@ export default function reducer(state = initialState, action){
       break;
 
     case REMOVE_STUDENT:
-      console.log("action.student * ", typeof action.student);
-      console.log("newState", newState.students);
-      console.log('should be filtered arr', newState.students.filter(student => student.id !== action.student));
-      return newState.students.filter(student => student.id !== action.student);
+      newState.students.filter(student => student.id !== Number(action.student));
+      break;
 
     default:
       return state;

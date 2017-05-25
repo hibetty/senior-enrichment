@@ -24,14 +24,14 @@ const data = {
     }
   ],
   students: [
-    {name: 'Katherine Johnson', email: 'kathy@nasa.gov'},
-    {name: 'Grace Hopper', email: 'grace@navy.mil'},
-    {name: 'Ada Lovelace', email: 'ada@babbage.net'},
-    {name: 'Mae Jemison', email: 'mjemison@nasa.gov'},
-    {name: 'Allie Fauer', email: 'allie@mhacademy.edu'},
-    {name: 'Stella Chung', email: 'stella@mhacademy.edu'},
-    {name: 'Nyota Uhura', email: 'uhura@mhacademy.edu'},
-    {name: 'River Tam', email: 'river@mhacademy.edu'}
+    {name: 'Katherine Johnson', email: 'kathy@nasa.gov', campusId: '1'},
+    {name: 'Grace Hopper', email: 'grace@navy.mil', campusId: '1'},
+    {name: 'Ada Lovelace', email: 'ada@babbage.net', campusId: '2'},
+    {name: 'Mae Jemison', email: 'mjemison@nasa.gov', campusId: '2'},
+    {name: 'Allie Fauer', email: 'allie@mhacademy.edu', campusId: '3'},
+    {name: 'Stella Chung', email: 'stella@mhacademy.edu', campusId: '3'},
+    {name: 'Nyota Uhura', email: 'uhura@mhacademy.edu', campusId: '4'},
+    {name: 'River Tam', email: 'river@mhacademy.edu', campusId: '4'}
   ]
 };
 

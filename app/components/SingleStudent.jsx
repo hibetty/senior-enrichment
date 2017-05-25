@@ -31,8 +31,6 @@ export default class SingleStudent extends React.Component {
           </select>
           <button type="submit">Update</button>
         </form>
-        <hr />
-        <button name="deleteCampus">Delete Student</button>
       </div>
     );
   }
