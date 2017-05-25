@@ -22,7 +22,7 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="campuses" component={AllCampusesContainer} />
         <Route path="campus/:id" component={SingleCampusContainer} />
-        <Route path="campus/add" component={testComponent} />
+        <Route path="campuses/add" component={testComponent} />
         <Route path="students" component={AllStudentsContainer} />
         <Route path="student/:id" component={SingleStudentContainer} />
         <Route path="students/add" component={AddStudentContainer} />
