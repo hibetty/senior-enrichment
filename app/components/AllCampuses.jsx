@@ -11,6 +11,7 @@ export default class AllCampuses extends React.Component {
     console.log('the props.campuses!!!', this.props.campuses.campuses);
     return (
       <div>
+      <h1>All Interplanetary Campuses</h1>
         {
           this.props.campuses.campuses.map(campus => {
             return (

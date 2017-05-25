@@ -29,6 +29,17 @@ export default class SingleCampus extends React.Component {
           })
         }
         </table>
+        <hr />
+        <h3>Update Campus Information:</h3>
+        <form action={`/api/campus/${this.props.campuses.id}`} method="put">
+          <label htmlFor="name">Campus Name:</label>
+          <input type="text" id="name" />
+          <label htmlFor="imageURL">Image URL:</label>
+          <input type="text" id="imageURL" />
+          <button type="submit">Update</button>
+        </form>
+        <hr />
+        <button name="deleteCampus">Delete Campus</button>
       </div>
     );
   }

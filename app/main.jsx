@@ -10,6 +10,7 @@ import Home from './components/Home';
 import AllCampusesContainer from './containers/AllCampusesContainer';
 import SingleCampusContainer from './containers/SingleCampusContainer';
 import AllStudentsContainer from './containers/AllStudentsContainer';
+import SingleStudentContainer from './containers/SingleStudentContainer';
 import testComponent from './components/testComponent';
 import testComponent2 from './components/testComponent2';
 
@@ -19,9 +20,9 @@ ReactDOM.render(
       <Route path="/" component={Root}>
         <IndexRoute component={Home} />
         <Route path="campuses" component={AllCampusesContainer} />
-        <Route path="students" component={AllStudentsContainer} />
-        <Route path="student/:id" component={testComponent} />
         <Route path="campus/:id" component={SingleCampusContainer} />
+        <Route path="students" component={AllStudentsContainer} />
+        <Route path="student/:id" component={SingleStudentContainer} />
         <Route path="students/add" component={testComponent} />
 
        {/* probably not necessary? vvv */}

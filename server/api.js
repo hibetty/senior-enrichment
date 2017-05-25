@@ -8,7 +8,7 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}));
 /* --- GET REQUESTS --- */
 
 api.get('/students', (req, res, next) => {
-  db.Student.findAll()
+  db.Student.findAll({order: 'id'})
   .then(students => res.send(students))
   .catch(next);
 });
@@ -35,7 +35,11 @@ api.get('/campus/:id', (req, res, next) => {
 
 api.get('/student/:id', (req, res, next) => {
   let id = req.params.id;
-  db.Student.findById(id)
+  db.Student.findOne({
+    where: {
+      id: id
+    }, include: [db.Campus]
+  })
   .then(student => res.send(student))
   .catch(next);
 });
