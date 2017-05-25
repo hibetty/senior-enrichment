@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class AllCampuses extends React.Component {
   componentDidMount() {
@@ -6,16 +7,19 @@ export default class AllCampuses extends React.Component {
   }
 
   render() {
-    console.log('the props.campuses!!!', this.props.campuses);
+    console.log("this.props ******", this.props)
+    console.log('the props.campuses!!!', this.props.campuses.campuses);
     return (
       <div>
         {
-          this.props.campuses.map(campus => {
+          this.props.campuses.campuses.map(campus => {
             return (
-            <div className="campusCard" key={campus.id}>
+            <Link to={`/campus/${campus.id}`} key={campus.id}>
+            <div className="campusCard">
               <h4>{campus.name}</h4>
               <img src={campus.image} />
-            </div>);
+            </div>
+            </Link>);
           })
         }
       </div>
