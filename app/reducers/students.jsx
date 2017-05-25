@@ -88,11 +88,11 @@ export default function reducer(state = initialState, action){
       break;
 
     case REMOVE_STUDENT:
-      newState.students.filter(student => student.id !== Number(action.student));
+      newState.students = newState.students.filter(student => student.id !== Number(action.student));
       break;
 
     case SET_STUDENT:
-      newState.students.concat(action.studentInfo);
+      newState.students = newState.students.concat(action.studentInfo);
       break;
 
     default:
