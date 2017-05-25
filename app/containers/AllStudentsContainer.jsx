@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAllStudents } from '../reducers/students';
+import { getAllStudents, removeOneStudent } from '../reducers/students';
 
 import AllStudents from '../components/AllStudents';
 
@@ -11,6 +11,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   loadStudents: () => {
     dispatch(getAllStudents());
+  },
+  removeStudent: (studentId) => {
+    dispatch(removeOneStudent(studentId));
   }
 });
 

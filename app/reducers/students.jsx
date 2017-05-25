@@ -9,6 +9,7 @@ let initialState = {
 /* --- actions --- */
 const GET_ALL_STUDENTS = 'GET_ALL_STUDENTS';
 const GET_STUDENT_DATA = 'GET_STUDENT_DATA';
+const REMOVE_STUDENT = 'REMOVE_STUDENT';
 
 
 /* --- action creators --- */
@@ -20,6 +21,12 @@ export const getStudents = (students) => ({
 export const getStudentData = (data) => ({
   type: GET_STUDENT_DATA,
   student: data
+});
+
+export const removeStudent = (student) => (
+{
+  type: REMOVE_STUDENT,
+  student
 });
 
 
@@ -42,6 +49,15 @@ export const getOneStudentData = (studentId) =>
   };
 };
 
+export const removeOneStudent = (studentId) =>
+{
+  return dispatch => {
+    dispatch(removeStudent(studentId));
+    axios.delete(`/api/student/${studentId}`)
+    .catch(err => console.error(`Oops. Unable to remove student with id: ${studentId}`, err));
+  };
+};
+
 /* --- reducer --- */
 export default function reducer(state = initialState, action){
   const newState = Object.assign({}, state);
@@ -55,6 +71,12 @@ export default function reducer(state = initialState, action){
       newState.student = action.student;
       newState.campus = action.student.campus;
       break;
+
+    case REMOVE_STUDENT:
+      console.log("action.student * ", typeof action.student);
+      console.log("newState", newState.students);
+      console.log('should be filtered arr', newState.students.filter(student => student.id !== action.student));
+      return newState.students.filter(student => student.id !== action.student);
 
     default:
       return state;

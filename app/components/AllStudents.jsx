@@ -1,9 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 export default class AllStudents extends React.Component {
   componentDidMount() {
     this.props.loadStudents();
+    this.removeStudentCallback = this.removeStudentCallback.bind(this);
+  }
+
+  removeStudentCallback(event){
+    console.log('THE EVENT', event.target.id);
+    const removeStudent = this.props.removeStudent;
+    event.stopPropagation();
+    removeStudent(event.target.id);
   }
 
   render() {
@@ -33,7 +41,7 @@ export default class AllStudents extends React.Component {
               </td>
               <td>{student.email}</td>
               <td>
-                <button name="delete">Delete</button>
+                <button name="delete" id={student.id} onClick={this.removeStudentCallback}>Delete</button>
               </td>
             </tr>);
           })

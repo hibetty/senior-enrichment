@@ -54,6 +54,7 @@ export const getOneCampusData = (campusId) =>
 export const removeOneCampus = (campusId) =>
 {
   return dispatch => {
+    dispatch(removeCampus(campusId));
     axios.delete(`/api/campus/${campusId}`)
     .catch(err => console.error(`Oops. Unable to remove campus with id: ${campusId}`, err));
   };
