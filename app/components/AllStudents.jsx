@@ -48,6 +48,8 @@ export default class AllStudents extends React.Component {
         }
         </tbody>
         </table>
+      <hr />
+      <Link to="/students/add">Add a Student +</Link>
       </div>
     );
   }

@@ -10,6 +10,7 @@ let initialState = {
 const GET_ALL_STUDENTS = 'GET_ALL_STUDENTS';
 const GET_STUDENT_DATA = 'GET_STUDENT_DATA';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
+const SET_STUDENT = 'SET_STUDENT';
 
 
 /* --- action creators --- */
@@ -23,11 +24,15 @@ export const getStudentData = (data) => ({
   student: data
 });
 
-export const removeStudent = (student) => (
-{
+export const removeStudent = (student) => ({
   type: REMOVE_STUDENT,
   student
 });
+
+export const addStudent = (studentInfo) => ({
+  type: SET_STUDENT,
+  studentInfo
+})
 
 
 /* --- dispatchers --- */
@@ -58,6 +63,16 @@ export const removeOneStudent = (studentId) =>
   };
 };
 
+export const addAStudent = (studentInfo) =>
+{
+  return dispatch => {
+    axios.post('/api/students', studentInfo)
+    .then(res => res.data)
+    .then(student => dispatch(addStudent(student)))
+    .catch(err => console.error('there was a problem adding a student', err));
+  };
+};
+
 /* --- reducer --- */
 export default function reducer(state = initialState, action){
   const newState = Object.assign({}, state);
@@ -74,6 +89,10 @@ export default function reducer(state = initialState, action){
 
     case REMOVE_STUDENT:
       newState.students.filter(student => student.id !== Number(action.student));
+      break;
+
+    case SET_STUDENT:
+      newState.students.concat(action.studentInfo);
       break;
 
     default:
