@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addNewCampus: (campusInfo) => {
+  addCampus: (campusInfo) => {
     dispatch(addACampus(campusInfo));
   }
 });

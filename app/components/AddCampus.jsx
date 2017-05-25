@@ -2,28 +2,25 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 export default class AddCampus extends React.Component {
-  componentDidMount() {
-    console.log('hello');
-    this.onAddCampusSubmit = this.onAddCampusSubmit.bind(this);
-  }
-
-  onAddCampusSubmit(event){
+  onCampusSubmit(event){
     event.preventDefault();
+    console.log('PROPS IN SUBMIT FUNC', this);
     let campusInfo = {
       name: event.target.name.value,
       image: event.target.imageURL.value
     };
-    this.props.addNewCampus(campusInfo);
+    this.props.addCampus(campusInfo);
     browserHistory.push('/campuses');
   }
 
   render(){
-    console.log('THE ADD CAMPUS PROPS', this.props);
+    this.onCampusSubmit = this.onCampusSubmit.bind(this);
+    console.log('PROPS IN RENDER', this.props);
     return (
       <div>
       <h1>Add a Campus</h1>
         <div className="row col-lg-4">
-          <form action={`/api/campuses`} method="post" onSubmit={this.onAddCampusSubmit}>
+          <form action={`/api/students`} method="post" onSubmit={this.onCampusSubmit}>
           <div className="form-group">
             <label htmlFor="name">Campus Name:</label>
             <input className="form-control" type="text" id="name" />
