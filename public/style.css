@@ -1,3 +1,6 @@
+body {
+  margin: 5%;
+}
 .campusCard {
   display: inline-block;
   margin: 1em;

@@ -8,19 +8,19 @@ const data = {
   campuses: [
     {
       name: 'Luna',
-      image: 'https://spaceholder.cc/250x250'
+      image: 'http://localhost:1337/luna.jpg'
     },
     {
       name: 'Terra',
-      image: 'https://spaceholder.cc/250x250'
+      image: 'http://localhost:1337/terra.jpg'
     },
     {
       name: 'Mars',
-      image: 'https://spaceholder.cc/250x250'
+      image: 'http://localhost:1337/mars.jpg'
     },
     {
       name: 'Titan',
-      image: 'https://spaceholder.cc/250x250'
+      image: 'http://localhost:1337/titan.jpeg'
     }
   ],
   students: [

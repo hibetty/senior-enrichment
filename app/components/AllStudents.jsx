@@ -19,7 +19,7 @@ export default class AllStudents extends React.Component {
     return (
       <div>
       <h1>All Interplanetary Students</h1>
-      <table>
+      <table className="table">
       <thead>
       <tr>
         <th>ID</th>
@@ -41,7 +41,7 @@ export default class AllStudents extends React.Component {
               </td>
               <td>{student.email}</td>
               <td>
-                <button name="delete" id={student.id} onClick={this.removeStudentCallback}>Delete</button>
+                <button className="btn btn-default" name="delete" id={student.id} onClick={this.removeStudentCallback}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               </td>
             </tr>);
           })
@@ -49,7 +49,7 @@ export default class AllStudents extends React.Component {
         </tbody>
         </table>
       <hr />
-      <Link to="/students/add">Add a Student +</Link>
+      <Link to="/students/add" className="btn btn-default">Add Student <span className="glyphicon glyphicon-plus" aria-hidden="true"></span></Link>
       </div>
     );
   }

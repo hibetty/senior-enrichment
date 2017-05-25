@@ -22,22 +22,29 @@ export default class AddStudent extends React.Component {
     return (
       <div>
       <h1>Add a Student</h1>
-        <form action={`/api/students`} method="post" onSubmit={this.onAddStudentSubmit}>
-          <label htmlFor="name">Student Name:</label>
-          <input type="text" id="name" />
-          <label htmlFor="email">Email:</label>
-          <input type="text" id="email" />
-          <label htmlFor="campusSelect">Campus: </label>
-          <select id="campusSelect">
-          {
-            this.props.campuses.campuses.map(campus => {
-              return <option key={campus.id}>{campus.name} - {campus.id}</option>;
-            })
-          }
-
-          </select>
-          <button type="submit">Add New Student</button>
-        </form>
+        <div className="row col-lg-4">
+          <form action={`/api/students`} method="post" onSubmit={this.onAddStudentSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Student Name:</label>
+            <input className="form-control" type="text" id="name" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input className="form-control" type="text" id="email" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="campusSelect">Campus: </label>
+            <select className="form-control" id="campusSelect">
+            {
+              this.props.campuses.campuses.map(campus => {
+                return <option key={campus.id}>{campus.name} - {campus.id}</option>;
+              })
+            }
+            </select>
+          </div>
+            <button className="btn btn-default" type="submit">Add New Student</button>
+          </form>
+        </div>
       </div>
     );
   }
