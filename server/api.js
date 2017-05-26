@@ -89,13 +89,16 @@ api.put('/student/:id', (req, res, next) => {
 api.put('/campus/:id', (req, res, next) => {
   let campusId = req.params.id;
   db.Campus.update({
-    //UPDATE STUFF HERE
+    name: req.body.name,
+    image: req.body.image
   }, {
     where: {
       id: campusId
-    }
+    },
+    returning: true,
+    plain: true
   })
-  .then(campus => res.json(campus))
+  .then(campus => res.json(campus[1]))
   .catch(next);
 });
 

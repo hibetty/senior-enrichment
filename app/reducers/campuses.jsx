@@ -12,6 +12,7 @@ const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_CAMPUS_DATA = 'GET_CAMPUS_DATA';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 const SET_CAMPUS = 'SET_CAMPUS';
+const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 
 /* --- action creators --- */
@@ -37,6 +38,11 @@ export const addCampus = (campusInfo) => ({
   campusInfo
 });
 
+export const updateCampus = (campusInfo) => ({
+  type: UPDATE_CAMPUS,
+  campusInfo
+});
+
 
 /* --- dispatchers --- */
 export const getAllCampuses =  () =>
@@ -44,7 +50,8 @@ export const getAllCampuses =  () =>
   return dispatch => {
     axios.get('/api/campuses')
     .then(res => res.data)
-    .then(res => dispatch(getCampuses(res)));
+    .then(res => dispatch(getCampuses(res)))
+    .catch(err => console.error(err));
   };
 };
 
@@ -53,7 +60,8 @@ export const getOneCampusData = (campusId) =>
   return dispatch => {
     axios.get(`/api/campus/${campusId}`)
     .then(res => res.data)
-    .then(res => dispatch(getCampusData(res)));
+    .then(res => dispatch(getCampusData(res)))
+    .catch(err => console.error(err));
   };
 };
 
@@ -73,6 +81,16 @@ export const addACampus = (campusInfo) =>
     .then(res => res.data)
     .then(campus => dispatch(addCampus(campus)))
     .catch(err => console.error('there was a problem adding a campus', err));
+  };
+};
+
+export const updateOneCampus = (campusInfo) =>
+{
+  return dispatch => {
+    axios.put(`/api/campus/${campusInfo.id}`, campusInfo)
+    .then(res => res.data)
+    .then(campus => dispatch(updateCampus(campus)))
+    .catch(err => console.error('there was a problem updating the campus info', err));
   };
 };
 
@@ -97,6 +115,10 @@ export default function reducer(state = initialState, action){
 
     case SET_CAMPUS:
     newState.campuses = newState.campuses.concat(action.campusInfo);
+    break;
+
+    case UPDATE_CAMPUS:
+    newState.campusName = action.campusInfo.name;
     break;
 
     default:
