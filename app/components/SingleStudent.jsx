@@ -7,7 +7,6 @@ export default class SingleStudent extends React.Component {
   }
 
   render() {
-    console.log('PROPS FOR SINGLE STUDENT', this.props);
     return (
       <div>
         <h1>{this.props.students.student.name}</h1>

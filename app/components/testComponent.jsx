@@ -6,7 +6,7 @@ const testComponent = () => {
       <h1>HELLO TEST</h1>
       <img src="/hotdog.png" />
     </div>
-  )
-}
+  );
+};
 
 export default testComponent;

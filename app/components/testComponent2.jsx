@@ -5,7 +5,7 @@ const testComponent2 = () => {
     <div>
       <h1>HELLO World</h1>
     </div>
-  )
-}
+  );
+};
 
 export default testComponent2;

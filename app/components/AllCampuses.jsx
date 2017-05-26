@@ -7,8 +7,6 @@ export default class AllCampuses extends React.Component {
   }
 
   render() {
-    console.log("this.props ******", this.props)
-    console.log('the props.campuses!!!', this.props.campuses);
     return (
       <div>
         <h1>All Interplanetary Campuses</h1>

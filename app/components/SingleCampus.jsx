@@ -15,7 +15,6 @@ export default class SingleCampus extends React.Component {
   }
 
   render() {
-    console.log('PROPS FOR SINGLE CAMPUS', this.props);
     return (
       <div>
         <h1>{this.props.campuses.campusName} Campus</h1>

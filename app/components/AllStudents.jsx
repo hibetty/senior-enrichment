@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 export default class AllStudents extends React.Component {
   componentDidMount() {
@@ -8,14 +8,12 @@ export default class AllStudents extends React.Component {
   }
 
   removeStudentCallback(event){
-    console.log('THE EVENT', event.target.id);
     const removeStudent = this.props.removeStudent;
     event.stopPropagation();
     removeStudent(event.target.id);
   }
 
   render() {
-    console.log("this.props ******", this.props)
     return (
       <div>
       <h1>All Interplanetary Students</h1>

@@ -13,8 +13,6 @@ import AllStudentsContainer from './containers/AllStudentsContainer';
 import SingleStudentContainer from './containers/SingleStudentContainer';
 import AddStudentContainer from './containers/AddStudentContainer';
 import AddCampusContainer from './containers/AddCampusContainer';
-import testComponent from './components/testComponent';
-import testComponent2 from './components/testComponent2';
 
 ReactDOM.render(
   <Provider store={store}>

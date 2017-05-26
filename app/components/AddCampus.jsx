@@ -15,7 +15,6 @@ export default class AddCampus extends React.Component {
 
   render(){
     this.onCampusSubmit = this.onCampusSubmit.bind(this);
-    console.log('PROPS IN RENDER', this.props);
     return (
       <div>
       <h1>Add a Campus</h1>
