@@ -65,13 +65,24 @@ api.post('/campuses', (req, res, next) => {
 api.put('/student/:id', (req, res, next) => {
   let studentId = req.params.id;
   db.Student.update({
-    //UPDATE STUFF HERE
+    name: req.body.name,
+    email: req.body.email,
+    campusId: req.body.campusId
   }, {
     where: {
       id: studentId
-    }
+    },
+    returning: true,
+    plain: true
+  }).then(result => {
+    db.Student.findOne({
+      where: {
+        id: result[1].id
+      },
+      include: [db.Campus]
+    })
+    .then(student => res.json(student));
   })
-  .then(student => res.json(student))
   .catch(next);
 });
 

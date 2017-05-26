@@ -4,7 +4,6 @@ import { browserHistory } from 'react-router';
 export default class AddCampus extends React.Component {
   onCampusSubmit(event){
     event.preventDefault();
-    console.log('PROPS IN SUBMIT FUNC', this);
     let campusInfo = {
       name: event.target.name.value,
       image: event.target.imageURL.value

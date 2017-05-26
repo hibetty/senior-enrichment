@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getOneStudentData } from '../reducers/students';
+import { getOneStudentData, updateOneStudent } from '../reducers/students';
 import { getAllCampuses } from '../reducers/campuses';
 
 import SingleStudent from '../components/SingleStudent';
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadCampuses: () => {
     dispatch(getAllCampuses());
+  },
+  updateStudent: (studentInfo) => {
+    dispatch(updateOneStudent(studentInfo));
   }
 });
 
