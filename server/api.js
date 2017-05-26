@@ -65,7 +65,7 @@ api.post('/campuses', (req, res, next) => {
 api.put('/student/:id', (req, res, next) => {
   let studentId = req.params.id;
   db.Student.update({
-    //UPDATE STUFF HEREEEEEE
+    //UPDATE STUFF HERE
   }, {
     where: {
       id: studentId
@@ -78,7 +78,7 @@ api.put('/student/:id', (req, res, next) => {
 api.put('/campus/:id', (req, res, next) => {
   let campusId = req.params.id;
   db.Campus.update({
-    //UPDATE STUFF HEREEEEEE
+    //UPDATE STUFF HERE
   }, {
     where: {
       id: campusId
