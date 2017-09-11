@@ -1,4 +1,5 @@
 'use strict';
+const auth = require('basic-auth');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,6 +13,28 @@ if (process.env.NODE_ENV !== 'production') {
   // Logging middleware (non-production only)
   app.use(require('volleyball'));
 }
+
+app.all('*', function (req, res, next) {
+        if (process.env.AUTH_USER && process.env.AUTH_PASSWORD) {
+          var credentials = auth(req);
+
+          if (
+               !credentials
+               || credentials.name !== process.env.AUTH_USER
+               || credentials.pass !== process.env.AUTH_PASSWORD
+             ) {
+            res.statusCode = 401;
+            res.setHeader('WWW-Authenticate',
+                          'Basic realm="Prototype Access"');
+            res.end('Access denied');
+          } else {
+            next();
+          }
+        } else {
+          next();
+        }
+      });
+
 
 // middleware and static files
 app.use(bodyParser.urlencoded({ extended: true }));
