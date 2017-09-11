@@ -1,7 +1,5 @@
 'use strict';
 
-const wwwhisper = require('connect-wwwhisper');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -16,7 +14,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // middleware and static files
-app.use(wwwhisper());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '..', 'public')));

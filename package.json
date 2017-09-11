@@ -8,7 +8,6 @@
     "build": "webpack",
     "build-watch": "webpack -w",
     "start": "node server/start.js"
-
   },
   "keywords": [
     "react",
@@ -17,8 +16,14 @@
   ],
   "dependencies": {
     "axios": "^0.16.1",
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",
+    "connect-wwwhisper": "*",
     "express": "^4.14.0",
     "pg": "^6.1.0",
     "pg-native": "^1.10.0",
@@ -30,15 +35,8 @@
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
     "sequelize": "^3.24.6",
-    "babel": "^6.5.2",
-    "babel-core": "^6.18.0",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
     "volleyball": "^1.4.1",
-    "webpack": "^1.13.3",
-    "connect-wwwhisper": "*"
+    "webpack": "^1.13.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
